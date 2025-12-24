@@ -111,16 +111,28 @@ body {
     #window-controls {
         @apply flex gap-2;
 
+        button {
+            @apply size-3.5 rounded-full border-0 transition-opacity;
+
+            &:not(:disabled) {
+                @apply cursor-pointer hover:opacity-80;
+            }
+
+            &:disabled {
+                @apply cursor-default opacity-60;
+            }
+        }
+
         .close {
-            @apply size-3.5 rounded-full bg-[#ff6157] cursor-pointer;
+            @apply bg-[#ff6157];
         }
 
         .minimize {
-            @apply size-3.5 rounded-full bg-[#ffc030];
+            @apply bg-[#ffc030];
         }
 
         .maximize {
-            @apply size-3.5 rounded-full bg-[#2acb42];
+            @apply bg-[#2acb42];
         }
     }
 

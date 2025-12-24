@@ -1,12 +1,39 @@
-import useWindowStore, { WindowKey } from '@/app/store/windows'
+import useWindowStore, { type WindowKey } from '@/app/store/windows'
 
-const WindowControls = ({ target }: { target: WindowKey }) => {
+interface WindowControlsProps {
+  target: WindowKey
+}
+
+const WindowControls = ({ target }: WindowControlsProps) => {
   const { closeWindow } = useWindowStore()
+
+  const handleClose = () => {
+    closeWindow(target)
+  }
+
   return (
     <div id='window-controls'>
-      <div className='close' onClick={() => closeWindow(target)} />
-      <div className='minimize' />
-      <div className='maximize' />
+      <button
+        type='button'
+        className='close'
+        onClick={handleClose}
+        aria-label='Close window'
+        title='Close'
+      />
+      <button
+        type='button'
+        className='minimize'
+        aria-label='Minimize window'
+        title='Minimize'
+        disabled
+      />
+      <button
+        type='button'
+        className='maximize'
+        aria-label='Maximize window'
+        title='Maximize'
+        disabled
+      />
     </div>
   )
 }

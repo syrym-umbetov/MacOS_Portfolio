@@ -1,16 +1,20 @@
 import Image from 'next/image'
 import logo from '@/public/images/logo.svg'
 import { navIcons, navLinks } from '@/constants'
+import useWindowStore, { WindowKey } from '@/app/store/windows'
 
 export default function Navbar() {
+  const { openWindow } = useWindowStore()
   return (
     <nav>
       <div>
         <Image src={logo} alt='logo' />
         <p className='font-bold'>Syrym&#39;s portfolio</p>
         <ul>
-          {navLinks.map(({ id, name }) => (
-            <li key={id}>{name}</li>
+          {navLinks.map(({ id, name, type }) => (
+            <li key={id} onClick={() => openWindow(type as WindowKey)}>
+              {name}
+            </li>
           ))}
         </ul>
       </div>

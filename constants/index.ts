@@ -1,3 +1,5 @@
+import type { Location } from '@/app/store/location'
+
 const navLinks = [
     {
         id: 1,
@@ -215,12 +217,12 @@ export {
     gallery,
 };
 
-const WORK_LOCATION = {
+const WORK_LOCATION: Location = {
     id: 1,
-    type: "work",
+    type: "work" as const,
     name: "Work",
     icon: "/icons/work.svg",
-    kind: "folder",
+    kind: "folder" as const,
     children: [
         // ▶ Project 1
         {
@@ -383,12 +385,12 @@ const WORK_LOCATION = {
     ],
 };
 
-const ABOUT_LOCATION = {
+const ABOUT_LOCATION: Location = {
     id: 2,
-    type: "about",
+    type: "about" as const,
     name: "About me",
     icon: "/icons/info.svg",
-    kind: "folder",
+    kind: "folder" as const,
     children: [
         {
             id: 1,
@@ -436,12 +438,12 @@ const ABOUT_LOCATION = {
     ],
 };
 
-const RESUME_LOCATION = {
+const RESUME_LOCATION: Location = {
     id: 3,
-    type: "resume",
+    type: "resume" as const,
     name: "Resume",
     icon: "/icons/file.svg",
-    kind: "folder",
+    kind: "folder" as const,
     children: [
         {
             id: 1,
@@ -455,12 +457,12 @@ const RESUME_LOCATION = {
     ],
 };
 
-const TRASH_LOCATION = {
+const TRASH_LOCATION: Location = {
     id: 4,
-    type: "trash",
+    type: "trash" as const,
     name: "Trash",
     icon: "/icons/trash.svg",
-    kind: "folder",
+    kind: "folder" as const,
     children: [
         {
             id: 1,
@@ -483,7 +485,7 @@ const TRASH_LOCATION = {
     ],
 };
 
-export const locations = {
+export const locations: Record<'work' | 'about' | 'resume' | 'trash', Location> = {
     work: WORK_LOCATION,
     about: ABOUT_LOCATION,
     resume: RESUME_LOCATION,

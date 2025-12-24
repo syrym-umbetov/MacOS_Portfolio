@@ -2,7 +2,7 @@
 import { Navbar, Welcome, Dock } from '@/app/components'
 import gsap from 'gsap'
 import { Draggable } from 'gsap/dist/Draggable'
-import { Terminal } from '@/app/windows'
+import { Safari, Terminal } from '@/app/windows'
 
 gsap.registerPlugin(Draggable)
 export default function Home() {
@@ -12,6 +12,7 @@ export default function Home() {
       <Welcome />
       <Dock />
       <Terminal />
+      <Safari />
     </main>
   )
 }

@@ -1,6 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
-
 @import "tailwindcss";
+
+@property --wght {
+    syntax: '<number>';
+    initial-value: 400;
+    inherits: true;
+}
 
 html,
 body {
@@ -14,8 +18,8 @@ body {
 }
 
 @theme {
-    --font-georama: "Georama", sans-serif;
-    --font-roboto: "Roboto Mono", monospace;
+    --font-georama: var(--font-georama);
+    --font-roboto: var(--font-roboto);
     --breakpoint-3xl: 1920px;
 }
 
@@ -68,6 +72,12 @@ body {
 
     #welcome {
         @apply text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10;
+
+        span {
+            display: inline-block;
+            will-change: font-variation-settings;
+            font-family: 'Georama', sans-serif;
+        }
 
         .small-screen {
             @apply sm:hidden m-7 bg-red-300/20 backdrop-blur-lg p-3 rounded-md absolute top-10;

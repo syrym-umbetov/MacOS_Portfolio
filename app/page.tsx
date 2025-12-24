@@ -1,9 +1,11 @@
-import Navbar from "@/app/components/Navbar";
+'use client'
+import { Navbar, Welcome } from '@/app/components'
 
 export default function Home() {
   return (
     <main>
-        <Navbar />
+      <Navbar />
+      <Welcome />
     </main>
-  );
+  )
 }
